@@ -5966,11 +5966,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mdrae\\Documents\\Projetos\\Flweb_Pessoal\\Flweb\\Flweb\\Flweb.csproj",
+      "projectUniqueName": "C:\\Users\\mdrae\\Documents\\Projetos\\Flweb_Pessoal\\Flweb-UEA\\Flweb\\Flweb\\Flweb.csproj",
       "projectName": "Flweb",
-      "projectPath": "C:\\Users\\mdrae\\Documents\\Projetos\\Flweb_Pessoal\\Flweb\\Flweb\\Flweb.csproj",
+      "projectPath": "C:\\Users\\mdrae\\Documents\\Projetos\\Flweb_Pessoal\\Flweb-UEA\\Flweb\\Flweb\\Flweb.csproj",
       "packagesPath": "C:\\Users\\mdrae\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mdrae\\Documents\\Projetos\\Flweb_Pessoal\\Flweb\\Flweb\\obj\\",
+      "outputPath": "C:\\Users\\mdrae\\Documents\\Projetos\\Flweb_Pessoal\\Flweb-UEA\\Flweb\\Flweb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mdrae\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Flweb.Model.Context
 {
@@ -14,6 +10,8 @@ namespace Flweb.Model.Context
         }
         public MySQLContext(DbContextOptions<MySQLContext> options) : base(options) { }
 
-        
+        public DbSet<User> Users { get; set; }
+
+
     }
 }

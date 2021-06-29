@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dJe3EGOeIURvkdk40wOWCO6P70/TxokmeMeja9BZdXpWUKG6DCi+BMp6sIDRB2CwM3lNH4gSvjrjkB4nrLitSw==",
+  "dgSpecHash": "k3OCfkONHgu4KKMpwQerj6oG48z/tx1Wqw22Twe9MvQXCx+gfxQWmotHrwq10cQFN8B5qkGSU8Tay64nwAAWgQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mdrae\\Documents\\Projetos\\Flweb_Pessoal\\Flweb\\Flweb\\Flweb.csproj",
+  "projectFilePath": "C:\\Users\\mdrae\\Documents\\Projetos\\Flweb_Pessoal\\Flweb-UEA\\Flweb\\Flweb\\Flweb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mdrae\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\mdrae\\.nuget\\packages\\evolve\\3.0.0\\evolve.3.0.0.nupkg.sha512",

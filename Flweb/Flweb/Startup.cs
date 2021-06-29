@@ -23,6 +23,8 @@ using Flweb.Services.Interface;
 using Flweb.Services.Implementation;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Net.Http.Headers;
+using Flweb.Repository.Interface;
+using Flweb.Repository.Implementation;
 
 namespace Flweb
 {
@@ -134,6 +136,8 @@ namespace Flweb
             services.AddTransient<ITokenService, TokenService>();
 
             services.AddScoped<IFileBusiness, FileBusinessImplementation>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ILoginBusiness, LoginBusinessImplementation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -19,9 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Data\Converter\Implementation\" />
-    <Folder Include="db\migrations\" />
-    <Folder Include="db\dataset\" />
-    <Folder Include="Repository\" />
     <Folder Include="UploadDir\" />
   </ItemGroup>
 

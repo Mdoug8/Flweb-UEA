@@ -1,9 +1,5 @@
 ﻿using Flweb.Data.VO;
 using Flweb.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Flweb.Repository.Interface
 {

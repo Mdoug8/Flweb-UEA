@@ -1,11 +1,17 @@
-﻿using System;
+﻿using Flweb.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Flweb.Repository.Interface
 {
-    interface IAtualizacaoRepository
+    public interface IAtualizacaoRepository
     {
+        Atualizacao Create(Atualizacao atualizacao);
+        Atualizacao FindByID(long id);
+        List<Atualizacao> FindAll();
+        Atualizacao Update(Atualizacao atualizacao);
+        void Delete(long id);
+        bool Exists(long id);
+
+
     }
 }

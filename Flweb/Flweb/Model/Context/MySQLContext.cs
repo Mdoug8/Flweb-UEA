@@ -16,6 +16,8 @@ namespace Flweb.Model.Context
 
         public DbSet<Atualizacao> Atualizacoes { get; set;}
 
+        
+
 
     }
 }

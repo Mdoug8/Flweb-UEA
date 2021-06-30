@@ -1,11 +1,15 @@
-﻿using System;
+﻿using Flweb.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Flweb.Repository.Interface
 {
-    interface IArquivoRepository
+    public interface IArquivoRepository
     {
+        Arquivo Create(Arquivo arquivo);
+        Arquivo FindByID(long id);
+        List<Arquivo> FindAll();
+        Arquivo Update(Arquivo arquivo);
+        void delete(long id);
+        bool Exists(long id);
     }
 }

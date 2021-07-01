@@ -136,6 +136,10 @@ namespace Flweb
             services.AddTransient<ITokenService, TokenService>();
 
             services.AddScoped<IFileBusiness, FileBusinessImplementation>();
+            services.AddScoped<IAtualizacaoBusiness, AtualizacaoBusinessImplementation>();
+
+            services.AddScoped<IAtualizacaoRepository, AtualizacaoRepository>();
+            services.AddScoped<IFileRepository, FileRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ILoginBusiness, LoginBusinessImplementation>();
         }

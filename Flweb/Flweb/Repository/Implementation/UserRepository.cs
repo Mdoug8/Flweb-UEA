@@ -18,7 +18,25 @@ namespace Flweb.Repository.Implementation
             _context = context;
         }
 
-        public User ValidateCredentials(UserVO user)
+        public User NewUser(User user)
+        {
+            // encrypta a senha e manda para a variavel pass
+            var pass = ComputeHash(user.Password, new SHA256CryptoServiceProvider());
+            try
+            {
+                user.Password = pass;
+                _context.Add(user);
+                _context.SaveChanges();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return user;
+        }
+        public User ValidateCredentials(UserLoginVO user)
         {
             // encrypta a senha e manda para a variavel pass
             var pass = ComputeHash(user.Password, new SHA256CryptoServiceProvider());
@@ -31,6 +49,11 @@ namespace Flweb.Repository.Implementation
         {
             // verifica se existe um usuario com esse username e caso exista retorna ele
             return _context.Users.SingleOrDefault(u => (u.UserName == userName));
+        }
+
+        public User ValidateUser(UserRegisterVO user)
+        {
+            return _context.Users.SingleOrDefault(u => (u.UserName == user.UserName) && (u.Password == user.Password));
         }
 
         public bool RevokeToken(string userName)
@@ -80,5 +103,6 @@ namespace Flweb.Repository.Implementation
             return BitConverter.ToString(hashedBytes);
         }
 
+        
     }
 }

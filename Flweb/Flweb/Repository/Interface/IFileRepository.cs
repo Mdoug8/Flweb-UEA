@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Flweb.Repository.Interface
 {
-    public interface IArquivoRepository
+    public interface IFileRepository
     {
         Arquivo Create(Arquivo arquivo);
         Arquivo FindByID(long id);

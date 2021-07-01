@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace Flweb.Repository.Implementation
 {
-    public class ArquivoRepository : IArquivoRepository
+    public class FileRepository : IFileRepository
     {
         private MySQLContext _context;
 
-        public ArquivoRepository(MySQLContext context)
+        public FileRepository(MySQLContext context)
         {
             _context = context;
         }

@@ -1,4 +1,5 @@
-﻿using Flweb.Model;
+﻿using Flweb.Data.VO;
+using Flweb.Model;
 using System.Collections.Generic;
 
 namespace Flweb.Repository.Interface

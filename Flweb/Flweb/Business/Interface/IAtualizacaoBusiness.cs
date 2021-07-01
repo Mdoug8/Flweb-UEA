@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Flweb.Business.Interface
 {
-    interface IAtualizacaoBusiness
+    public interface IAtualizacaoBusiness
     {
         List<AtualizacaoVO> FindAll();
 

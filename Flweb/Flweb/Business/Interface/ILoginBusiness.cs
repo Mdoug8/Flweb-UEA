@@ -4,7 +4,8 @@ namespace Flweb.Business.Interface
 {
     public interface ILoginBusiness
     {
-        TokenVO ValidateCredentials(UserVO user);
+        UserRegisterVO NewUser(UserRegisterVO user);
+        TokenVO ValidateCredentials(UserLoginVO user);
 
         TokenVO ValidateCredentials(TokenVO token);
 

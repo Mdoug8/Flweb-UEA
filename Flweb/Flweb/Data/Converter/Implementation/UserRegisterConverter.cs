@@ -1,33 +1,40 @@
 ﻿using Flweb.Data.Converter.Contract;
 using Flweb.Data.VO;
 using Flweb.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Flweb.Data.Converter.Implementation
 {
-    public class ArquivoConverter : IParser<FileVO, Arquivo>, IParser<Arquivo, FileVO>
+    public class UserRegisterConverter : IParser<UserRegisterVO, User>, IParser<User, UserRegisterVO>
     {
-        public Arquivo Parse(FileVO origin)
+        public User Parse(UserRegisterVO origin)
         {
             if (origin == null) return null;
 
-            return new Arquivo
+            return new User
             {
-                Name = origin.Name
+                UserName = origin.UserName,
+                Name = origin.Name,
+                Password = origin.Password
             };
         }
-        public FileVO Parse(Arquivo origin)
+
+        public UserRegisterVO Parse(User origin)
         {
             if (origin == null) return null;
 
-            return new FileVO
+            return new UserRegisterVO
             {
-                Name = origin.Name
+                UserName = origin.UserName,
+                Name = origin.Name,
+                Password = origin.Password
             };
         }
 
-        public List<Arquivo> Parse(List<FileVO> origin)
+        public List<User> Parse(List<UserRegisterVO> origin)
         {
             if (origin == null)
             {
@@ -39,7 +46,7 @@ namespace Flweb.Data.Converter.Implementation
             }
         }
 
-        public List<FileVO> Parse(List<Arquivo> origin)
+        public List<UserRegisterVO> Parse(List<User> origin)
         {
             if (origin == null)
             {

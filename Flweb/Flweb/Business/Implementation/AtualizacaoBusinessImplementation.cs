@@ -2,7 +2,6 @@
 using Flweb.Data.Converter.Implementation;
 using Flweb.Data.VO;
 using Flweb.Repository.Interface;
-using System;
 using System.Collections.Generic;
 
 namespace Flweb.Business.Implementation
@@ -18,29 +17,36 @@ namespace Flweb.Business.Implementation
             _converter = new AtualizacaoConverter();
         }
 
-        public AtualizacaoVO Create(AtualizacaoVO atualizacao)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(long id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<AtualizacaoVO> FindAll()
         {
-            throw new NotImplementedException();
+            return _converter.Parse(_repository.FindAll());
         }
 
         public AtualizacaoVO FindById(long id)
         {
-            throw new NotImplementedException();
+            return _converter.Parse(_repository.FindByID(id));
         }
+        public AtualizacaoVO Create(AtualizacaoVO atualizacao)
+        {
+            var atualizacaoEntity = _converter.Parse(atualizacao);
 
+            atualizacaoEntity = _repository.Create(atualizacaoEntity);
+
+            return _converter.Parse(atualizacaoEntity); 
+        }
         public AtualizacaoVO Update(AtualizacaoVO atualizacao)
         {
-            throw new NotImplementedException();
+            var atualizacaoEntity = _converter.Parse(atualizacao);
+
+            atualizacaoEntity = _repository.Update(atualizacaoEntity);
+
+            return _converter.Parse(atualizacaoEntity);
         }
+
+        public void Delete(long id)
+        {
+            _repository.Delete(id);
+        }
+
     }
 }

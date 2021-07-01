@@ -2,6 +2,7 @@
 using Flweb.Data.VO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Flweb.Controllers
 {
@@ -17,9 +18,21 @@ namespace Flweb.Controllers
             _loginBusiness = loginBusiness;
         }
 
+
+        [HttpPost]
+        [Route("register")]
+        public IActionResult Register([FromBody] UserRegisterVO user)
+        {
+            if (user == null) return BadRequest("Requisicao do client invalida");
+            var newUser = _loginBusiness.NewUser(user);
+            if (newUser == null) return Unauthorized();
+            return Ok(newUser);
+        }
+
+
         [HttpPost]
         [Route("signin")]
-        public IActionResult Signin([FromBody] UserVO user)
+        public IActionResult Signin([FromBody] UserLoginVO user)
         {
             if (user == null) return BadRequest("Ivalid client request");
             var token = _loginBusiness.ValidateCredentials(user);

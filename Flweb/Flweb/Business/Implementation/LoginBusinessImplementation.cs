@@ -1,5 +1,6 @@
 ﻿using Flweb.Business.Interface;
 using Flweb.Configurations;
+using Flweb.Data.Converter.Implementation;
 using Flweb.Data.VO;
 using Flweb.Repository.Interface;
 using Flweb.Services.Interface;
@@ -15,6 +16,9 @@ namespace Flweb.Business.Implementation
         private const string DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
         private TokenConfiguration _configuration;
 
+        private readonly UserRegisterConverter _converter;
+
+
         private IUserRepository _repository;
         private readonly ITokenService _tokenService;
 
@@ -23,9 +27,25 @@ namespace Flweb.Business.Implementation
             _configuration = configuration;
             _repository = repository;
             _tokenService = tokenService;
+            _converter = new UserRegisterConverter();
         }
 
-        public TokenVO ValidateCredentials(UserVO userCredentials)
+        public UserRegisterVO NewUser(UserRegisterVO user)
+        {
+            //verificar se o usuario ja existe no banco
+            var userVerificado = _repository.ValidateUser(user);
+            if(userVerificado == null)
+            {
+                var userEntity = _converter.Parse(user);
+                userEntity = _repository.NewUser(userEntity);
+
+                return _converter.Parse(userEntity);
+            }
+
+            return null;
+        }
+
+        public TokenVO ValidateCredentials(UserLoginVO userCredentials)
         {
             //verifica se esse usuario existe no banco, caso exista ele retorna o usuario do banco para a variavel user
             var user = _repository.ValidateCredentials(userCredentials);
@@ -124,5 +144,7 @@ namespace Flweb.Business.Implementation
             // revoga o token
             return _repository.RevokeToken(userName);
         }
+
+       
     }
 }

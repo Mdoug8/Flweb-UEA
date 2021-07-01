@@ -1,6 +1,6 @@
 ﻿namespace Flweb.Data.VO
 {
-    public class ArquivoVO
+    public class FileVO
     {
         public string Name { get; set; }
 

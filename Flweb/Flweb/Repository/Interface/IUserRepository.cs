@@ -5,7 +5,10 @@ namespace Flweb.Repository.Interface
 {
     public interface IUserRepository
     {
-        User ValidateCredentials(UserVO user);
+        User NewUser(User user);
+
+        User ValidateUser(UserRegisterVO user);
+        User ValidateCredentials(UserLoginVO user);
 
         User ValidateCredentials(string username);
 

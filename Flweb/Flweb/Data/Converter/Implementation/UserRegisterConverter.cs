@@ -16,8 +16,11 @@ namespace Flweb.Data.Converter.Implementation
 
             return new User
             {
+                Id = origin.Id,
                 UserName = origin.UserName,
                 Name = origin.Name,
+                PhoneNumber = origin.PhoneNumber,
+                Email = origin.Email,
                 Password = origin.Password
             };
         }
@@ -28,8 +31,11 @@ namespace Flweb.Data.Converter.Implementation
 
             return new UserRegisterVO
             {
+                Id = origin.Id,
                 UserName = origin.UserName,
                 Name = origin.Name,
+                PhoneNumber = origin.PhoneNumber,
+                Email = origin.Email,
                 Password = origin.Password
             };
         }

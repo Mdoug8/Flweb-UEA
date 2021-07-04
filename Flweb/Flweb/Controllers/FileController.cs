@@ -46,6 +46,7 @@ namespace Flweb.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [Produces("application/json")]
+
         public async Task<IActionResult> UploadOneFile([FromForm] IFormFile file)
         {
             FileDetailVO detail = await _fileBusiness.SaveFileToDisk(file);

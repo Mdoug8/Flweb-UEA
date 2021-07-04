@@ -6,4 +6,4 @@
     modelo varchar(45),
     status_atualizacao tinyint
 )
-ENGINE=InnoDB DEFAULT CHARSET=latin1;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

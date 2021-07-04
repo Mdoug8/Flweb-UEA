@@ -128,6 +128,10 @@ namespace Flweb
                     });
             });
 
+            services.AddControllers().AddNewtonsoftJson(options =>
+                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft
+                     .Json.ReferenceLoopHandling.Ignore);
+
             //Dependency Injection
 
             //com isso podemos acessar as configuraçoes necessarias no Filebusiness 
@@ -142,6 +146,7 @@ namespace Flweb
             services.AddScoped<IFileRepository, FileRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ILoginBusiness, LoginBusinessImplementation>();
+            services.AddScoped<IUserBusiness, UserBusinessImplementation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -14,7 +14,7 @@ namespace Flweb.Data.Converter.Implementation
 
             return new Atualizacao
             {
-                //IdAtualizacao = origin.IdAtualizacao,
+                IdAtualizacao = origin.IdAtualizacao,
                 Versao = origin.Versao,
                 Name = origin.Name,
                 Modelo = origin.Modelo
@@ -28,7 +28,7 @@ namespace Flweb.Data.Converter.Implementation
 
             return new AtualizacaoVO
             {
-                //IdAtualizacao = origin.IdAtualizacao,
+                IdAtualizacao = origin.IdAtualizacao,
                 Versao = origin.Versao,
                 Name = origin.Name,
                 Modelo = origin.Modelo

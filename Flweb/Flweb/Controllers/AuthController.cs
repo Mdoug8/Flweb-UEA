@@ -18,26 +18,14 @@ namespace Flweb.Controllers
             _loginBusiness = loginBusiness;
         }
 
-
         [HttpPost]
-        [Route("register")]
-        public IActionResult Register([FromBody] UserRegisterVO user)
-        {
-            if (user == null) return BadRequest("Requisicao do client invalida");
-            var newUser = _loginBusiness.NewUser(user);
-            if (newUser == null) return Unauthorized();
-            return Ok(newUser);
-        }
-
-
-        [HttpPost]
-        [Route("signin")]
+        [Route("login")]
         public IActionResult Signin([FromBody] UserLoginVO user)
         {
             if (user == null) return BadRequest("Ivalid client request");
             var token = _loginBusiness.ValidateCredentials(user);
             if (token == null) return Unauthorized();
-            return Ok(token);
+            return new OkObjectResult(token);
         }
 
         [HttpPost]
@@ -54,10 +42,10 @@ namespace Flweb.Controllers
         [HttpGet]
         [Route("revoke")]
         [Authorize("Bearer")]
-        public IActionResult Revoke()
+        public async Task<IActionResult> Revoke()
         {
             var username = User.Identity.Name;
-            var result = _loginBusiness.RevokeToken(username);
+            var result = await _loginBusiness.RevokeToken(username);
 
             if (!result) return BadRequest("Ivalid client request");
             return NoContent();

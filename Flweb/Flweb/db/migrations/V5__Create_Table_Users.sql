@@ -1,11 +1,13 @@
 ﻿CREATE TABLE `users` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
-	`user_name` VARCHAR(50) NOT NULL DEFAULT '0',
+	`user_name` VARCHAR(50) NOT NULL DEFAULT '0' UNIQUE,
 	`password` VARCHAR(130) NOT NULL DEFAULT '0',
-	`full_name` VARCHAR(256) NOT NULL,
+	`full_name` VARCHAR(256) NOT NULL DEFAULT '0',
+	`email` VARCHAR(256) NOT NULL DEFAULT '0' UNIQUE,
+	`phone_number` VARCHAR(15) NOT NULL DEFAULT '0' UNIQUE,
+	`status` tinyint(1) NOT NULL DEFAULT '0',
 	`refresh_token` VARCHAR(500) NULL DEFAULT '0',
 	`refresh_token_expiry_time` DATETIME NULL DEFAULT NULL,
-	PRIMARY KEY (`id`),
-	UNIQUE `user_name` (`user_name`)
+	PRIMARY KEY (`id`)
 )
-ENGINE=InnoDB DEFAULT CHARSET=latin1;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

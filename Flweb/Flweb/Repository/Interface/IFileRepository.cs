@@ -5,10 +5,10 @@ namespace Flweb.Repository.Interface
 {
     public interface IFileRepository
     {
-        Arquivo Create(Arquivo arquivo);
-        Arquivo FindByID(long id);
-        List<Arquivo> FindAll();
-        Arquivo Update(Arquivo arquivo);
+        File Create(File arquivo);
+        File FindByID(long id);
+        List<File> FindAll();
+        File Update(File arquivo);
         void delete(long id);
         bool Exists(long id);
     }

@@ -1,14 +1,14 @@
 ﻿using Flweb.Data.VO;
+using System.Threading.Tasks;
 
 namespace Flweb.Business.Interface
 {
     public interface ILoginBusiness
     {
-        UserRegisterVO NewUser(UserRegisterVO user);
         TokenVO ValidateCredentials(UserLoginVO user);
 
         TokenVO ValidateCredentials(TokenVO token);
 
-        bool RevokeToken(string userName);
+        Task<bool> RevokeToken(string userName);
     }
 }

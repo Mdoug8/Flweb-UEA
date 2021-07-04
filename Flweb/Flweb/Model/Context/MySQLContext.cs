@@ -12,9 +12,11 @@ namespace Flweb.Model.Context
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<Arquivo> Arquivos { get; set; }
+        public DbSet<File> Arquivos { get; set; }
 
         public DbSet<Atualizacao> Atualizacoes { get; set;}
+
+        public DbSet<Papel> Papel { get; set; }
 
         
 

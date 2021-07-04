@@ -21,6 +21,16 @@ namespace Flweb.Model
         [StringLength(256)]
         public string Name { get; set; }
 
+        [Column("email")]
+        [StringLength(256)]
+        public string Email { get; set; }
+
+        [Column("phone_number")]
+        public string PhoneNumber { get; set; }
+
+        [Column("status")]
+        public long Status { get; set; }
+
         [Column("refresh_token")]
         public string RefreshToken { get; set; }
 

@@ -48,7 +48,7 @@ namespace Flweb.Controllers
             return Ok(atualizacao);
         }
 
-        [HttpPost("salvar_atualizacao")]
+        [HttpPost]
         [ProducesResponseType((200), Type = typeof(AtualizacaoVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -61,7 +61,7 @@ namespace Flweb.Controllers
             return Ok(_atualizacaoBusiness.Create(atualizacao));
         }
 
-        [HttpPut("alterar_atualizacao")]
+        [HttpPut]
         [ProducesResponseType((200), Type = typeof(AtualizacaoVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -74,7 +74,7 @@ namespace Flweb.Controllers
             return Ok(_atualizacaoBusiness.Update(atualizacao));
         }
 
-        [HttpDelete("delete/{id}")]
+        [HttpDelete("{id}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]

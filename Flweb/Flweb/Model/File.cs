@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Flweb.Model
 {
     [Table("arquivo")]
-    public class Arquivo
+    public class File
     {
         [Key]
         [Column("id_arquivo")]

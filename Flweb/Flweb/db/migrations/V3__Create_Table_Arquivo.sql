@@ -5,4 +5,4 @@
     id_atualizacao integer,
     constraint fk_AutoArquivo foreign key (id_atualizacao) references Atualizacao (id_atualizacao)
 )	
-ENGINE=InnoDB DEFAULT CHARSET=latin1;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -47,12 +47,13 @@ namespace Flweb.Repository.Implementation
             if (!Exists(atualizacao.IdAtualizacao)) return null;
 
             var result = _context.Atualizacoes.SingleOrDefault(p => p.IdAtualizacao.Equals(atualizacao.IdAtualizacao));
-            if(result!= null)
+            if (result != null)
             {
                 try
                 {
                     _context.Entry(result).CurrentValues.SetValues(atualizacao);
                     _context.SaveChanges();
+                    return result;
 
                 }
                 catch (Exception)
@@ -61,7 +62,10 @@ namespace Flweb.Repository.Implementation
                     throw;
                 }
             }
-            return atualizacao;
+            else
+            {
+                return null;
+            }
         }
 
         public void Delete(long id)

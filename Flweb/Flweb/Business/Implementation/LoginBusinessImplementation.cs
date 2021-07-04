@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.JsonWebTokens;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Flweb.Business.Implementation
 {
@@ -30,25 +31,10 @@ namespace Flweb.Business.Implementation
             _converter = new UserRegisterConverter();
         }
 
-        public UserRegisterVO NewUser(UserRegisterVO user)
-        {
-            //verificar se o usuario ja existe no banco
-            var userVerificado = _repository.ValidateUser(user);
-            if(userVerificado == null)
-            {
-                var userEntity = _converter.Parse(user);
-                userEntity = _repository.NewUser(userEntity);
-
-                return _converter.Parse(userEntity);
-            }
-
-            return null;
-        }
-
         public TokenVO ValidateCredentials(UserLoginVO userCredentials)
         {
             //verifica se esse usuario existe no banco, caso exista ele retorna o usuario do banco para a variavel user
-            var user = _repository.ValidateCredentials(userCredentials);
+            var user =  _repository.ValidateCredentials(userCredentials);
 
             if (user == null) return null;
             var claims = new List<Claim>
@@ -69,7 +55,7 @@ namespace Flweb.Business.Implementation
             user.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry);
 
             //atualiza as informacoes alteradas do usuario no banco 
-            _repository.RefreshUserInfo(user);
+             _repository.RefreshUserInfo(user);
 
             //pega a data atual e salva na variavel createDate
             DateTime createDate = DateTime.Now;
@@ -139,7 +125,7 @@ namespace Flweb.Business.Implementation
                 );
         }
 
-        public bool RevokeToken(string userName)
+        public Task<bool> RevokeToken(string userName)
         {
             // revoga o token
             return _repository.RevokeToken(userName);

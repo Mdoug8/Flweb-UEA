@@ -16,17 +16,17 @@ namespace Flweb.Repository.Implementation
             _context = context;
         }
 
-        public List<Arquivo> FindAll()
+        public List<File> FindAll()
         {
             return _context.Arquivos.ToList();
         }
 
-        public Arquivo FindByID(long id)
+        public File FindByID(long id)
         {
             return _context.Arquivos.SingleOrDefault(p => p.IdArquivo.Equals(id));
         }
 
-        public Arquivo Create(Arquivo arquivo)
+        public File Create(File arquivo)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace Flweb.Repository.Implementation
             return arquivo;
         }
 
-        public Arquivo Update(Arquivo arquivo)
+        public File Update(File arquivo)
         {
             if (!Exists(arquivo.IdArquivo)) return null;
 
